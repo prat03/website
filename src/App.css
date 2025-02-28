@@ -1,0 +1,127 @@
+/* General Styles */
+body{
+  font-family: sans-serif;
+  background: rgb(242, 229, 229);
+}
+.app {
+  /* background: #b4afb6a6; */
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(83, 81, 81, 0.1);
+  margin: 20px auto;
+  padding: 20px;
+  max-width: 600px;
+  width: 90%;
+  text-align: center;
+  justify-content: center;
+}
+
+h1 {
+  color: #746b7e;
+  margin-bottom: 20px;
+}
+
+h2 {
+  color: #201d24;
+  margin-bottom: 20px;
+}
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  text-align: left;
+  color: #555;
+  font-weight: bold;
+  font-family: Garamond, serif;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: calc(100% - 22px);
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin: auto;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+  outline: none;
+  margin: auto;
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin: 5px;
+}
+
+button:hover {
+  background-color: #08529b;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.error {
+  color: red;
+  margin-bottom: 10px;
+}
+
+.user-info {
+  margin-bottom: 20px;
+}
+
+/* Form Container Styles */
+.form-container {
+  background-color: #9d989f25;
+  padding: 30px;
+  border-radius: 8px;
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 300px;
+  margin: auto;
+  padding: 20px;
+  border-radius: 15px;
+  border-color: #fff;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+}
+
+.form-container div {
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+/* Table Styles */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #f0f0f0;
+  font-weight: bold;
+}
