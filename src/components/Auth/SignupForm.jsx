@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-
+ 
 function SignupForm({ onSignUp, onLogin, isLoading, error }) {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
+ 
   const handleSubmit = (event) => {
     event.preventDefault();
     onSignUp({ username, email, password });
@@ -12,7 +12,7 @@ function SignupForm({ onSignUp, onLogin, isLoading, error }) {
     setEmail('');
     setPassword('');
   };
-
+ 
   return (
     <div className="form-container">
       <form onSubmit={handleSubmit}>
@@ -61,5 +61,5 @@ function SignupForm({ onSignUp, onLogin, isLoading, error }) {
     </div>
   );
 }
-
+ 
 export default SignupForm;

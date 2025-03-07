@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-
+ 
 function ForgotPasswordForm({ onLogin }) {
   const [email, setEmail] = useState('');
-
+ 
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log('Resetting password for:', email);
@@ -10,7 +10,7 @@ function ForgotPasswordForm({ onLogin }) {
     onLogin();
     setEmail('');
   };
-
+ 
   return (
     <div className="form-container">
       <form onSubmit={handleSubmit}>
@@ -35,5 +35,5 @@ function ForgotPasswordForm({ onLogin }) {
     </div>
   );
 }
-
+ 
 export default ForgotPasswordForm;

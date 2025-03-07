@@ -1,21 +1,49 @@
 import React, { useState, useEffect } from 'react';
-
-function UserDataEdit({ user, onUpdateUser, onCancel }) {
+import { useParams } from 'react-router-dom';
+ 
+function UserDataEdit({ user, onCancel, onUpdated }) {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
-
+ 
   useEffect(() => {
     if (user) {
       setUsername(user.username);
       setEmail(user.email);
     }
   }, [user]);
-
-  const handleSubmit = (event) => {
+ 
+  const { id } = useParams();
+ 
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    onUpdateUser({ ...user, username, email });
+    // Basic form validation (you can add more robust validation here)
+    if (!username || !email) {
+      alert('Please fill in all fields.');
+      return;
+    }
+    try {
+      const response = await fetch(`/api/data/edit/${id}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ username, email }),
+      });
+ 
+      if (response.ok) {
+        alert('User updated successfully!');
+        if (onUpdated) {
+          onUpdated();
+        }
+      } else {
+        console.error('Error updating user:', response.statusText);
+      }
+    } catch (error) {
+      console.error('Error updating user:', error);
+    }
+    onCancel();
   };
-
+ 
   return (
     <div className="form-container">
       <h2>Edit User</h2>
@@ -48,6 +76,5 @@ function UserDataEdit({ user, onUpdateUser, onCancel }) {
     </div>
   );
 }
-
+ 
 export default UserDataEdit;
-

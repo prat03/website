@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
-
+ 
 function LoginForm({ onLogin, onForgotPassword, onSignUp, isLoading, error }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
+ 
   const handleSubmit = (event) => {
     event.preventDefault();
     onLogin(email, password);
     setEmail('');
     setPassword('');
   };
-
+ 
   return (
     <div className="form-container">
       <form onSubmit={handleSubmit}>
@@ -54,5 +54,5 @@ function LoginForm({ onLogin, onForgotPassword, onSignUp, isLoading, error }) {
     </div>
   );
 }
-
+ 
 export default LoginForm;

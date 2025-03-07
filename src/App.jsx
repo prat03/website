@@ -6,7 +6,7 @@ import ForgotPasswordForm from './components/Auth/ForgotPasswordForm';
 import UserDataList from './components/UserData/UserDataList';
 import UserDataEdit from './components/UserData/UserDataEdit';
 import { getUsers, addUser, updateUser, findUserByEmail } from './data/users';
-
+ 
 function App() {
   const [loggedInUser, setLoggedInUser] = useState(null);
   const [view, setView] = useState('login'); // 'login', 'signup', 'forgot', 'dataList', 'dataEdit'
@@ -14,11 +14,11 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const [userData, setUserData] = useState([]);
-
+ 
   useEffect(() => {
     setUserData(getUsers());
   }, []);
-
+ 
   const handleLogin = async (email, password) => {
     setIsLoading(true);
     setError(null);
@@ -37,13 +37,14 @@ function App() {
       setIsLoading(false);
     }
   };
-
+ 
   const handleSignup = async (newUser) => {
     setIsLoading(true);
     setError(null);
     try {
       await new Promise(resolve => setTimeout(resolve, 1000)); // Simulate delay
       addUser(newUser);
+      setUserData(getUsers()); // Refresh the data
       setView('login');
     } catch (err) {
       setError(err.message || 'Signup failed');
@@ -51,12 +52,12 @@ function App() {
       setIsLoading(false);
     }
   };
-
+ 
   const handleEditUser = (user) => {
     setSelectedUser(user);
     setView('dataEdit');
   };
-
+ 
   const handleUpdateUser = async (updatedUser) => {
     setIsLoading(true);
     setError(null);
@@ -71,24 +72,24 @@ function App() {
       setIsLoading(false);
     }
   };
-
+ 
   const handleBack = () => {
     setView('login')
   };
-
+ 
   const handleBackToLogin = () => {
     setView('login')
   }
-
+ 
   const handleToSignUp = () => {
     setView('signup')
   }
-
+ 
   const handleLogout = () => {
     setLoggedInUser(null);
     setView('login');
   };
-
+ 
   return (
     <div className="app">
       <h1>Data</h1>
@@ -100,7 +101,7 @@ function App() {
       )}
       {isLoading && <p>Loading...</p>}
       {error && <p className="error">{error}</p>}
-
+ 
       {view === 'login' && (
         <LoginForm
           onLogin={handleLogin}
@@ -110,7 +111,7 @@ function App() {
           error={error}
         />
       )}
-
+ 
       {view === 'signup' && (
         <SignupForm
           onSignUp={handleSignup}
@@ -119,16 +120,16 @@ function App() {
           error={error}
         />
       )}
-
+ 
       {view === 'forgot' && <ForgotPasswordForm onLogin={handleBack} />}
-
+ 
       {view === 'dataList' && (
         <UserDataList
           userData={userData}
           onEditUser={handleEditUser}
         />
       )}
-
+ 
       {view === 'dataEdit' && (
         <UserDataEdit
           user={selectedUser}
@@ -139,5 +140,5 @@ function App() {
     </div>
   );
 }
-
+ 
 export default App;
