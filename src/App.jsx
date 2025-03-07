@@ -101,7 +101,7 @@ function App() {
       )}
       {isLoading && <p>Loading...</p>}
       {error && <p className="error">{error}</p>}
- 
+       {/* in view concept */}
       {view === 'login' && (
         <LoginForm
           onLogin={handleLogin}

@@ -4,7 +4,7 @@ function SignupForm({ onSignUp, onLogin, isLoading, error }) {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
- 
+//  handle submit
   const handleSubmit = (event) => {
     event.preventDefault();
     onSignUp({ username, email, password });

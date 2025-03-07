@@ -2,7 +2,7 @@ import React, { useState } from 'react';
  
 function ForgotPasswordForm({ onLogin }) {
   const [email, setEmail] = useState('');
- 
+//  handle submit
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log('Resetting password for:', email);

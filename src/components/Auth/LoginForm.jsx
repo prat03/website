@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 function LoginForm({ onLogin, onForgotPassword, onSignUp, isLoading, error }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
- 
+//  handle submit
   const handleSubmit = (event) => {
     event.preventDefault();
     onLogin(email, password);

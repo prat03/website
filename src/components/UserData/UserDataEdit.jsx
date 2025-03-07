@@ -16,7 +16,7 @@ function UserDataEdit({ user, onCancel, onUpdated }) {
  
   const handleSubmit = async (event) => {
     event.preventDefault();
-    // Basic form validation (you can add more robust validation here)
+    //  Basic form validation (you can add more robust validation here)
     if (!username || !email) {
       alert('Please fill in all fields.');
       return;

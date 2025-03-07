@@ -9,7 +9,7 @@ let data = [
   { id: 1, username: 'initialuser', email: 'initial@example.com' }
 ];
 
-
+// server added for data base
 const server = http.createServer((req, res) => {
   // res.setHeader('Access-Control-Allow-Origin', '*');
   // res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT');
